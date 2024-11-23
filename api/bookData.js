@@ -102,7 +102,7 @@ const searchBooks = (uid, keyword) => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const bookSearch = Object.values(data).filter((item) => item.title.toLowerCase() === keyword);
+      const bookSearch = Object.values(data).filter((item) => item.title.toLowerCase().includes(keyword));
       resolve(bookSearch);
     })
     .catch(reject);
